@@ -118,4 +118,24 @@ function myLastIndex(arr, target) {
 
 function grabKeys(object) {
     let arr = []
+    for (var key in object) {
+        arr.push(key)
+    }
+    return arr
 }
+let obj1 = {
+    a: "foo",
+    b: "bar",
+    c: "buz"
+};
+console.log(grabKeys(obj1));
+
+function grabValues(object) {
+    let arr = []
+    for (var value in object) {
+        arr.push(value)
+    }
+    return arr
+}
+
+console.log(grabValues(obj1))
