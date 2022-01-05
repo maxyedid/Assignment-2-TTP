@@ -42,3 +42,17 @@ let arr3 = myFilter(arr1, function(element) {
     return element === 2;
 })
 console.log(arr3);
+
+function mySome(arr, callback) {
+    for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+let even = mySome(arr1, function(element) {
+    return element % 2 === 0
+})
+console.log(even)
