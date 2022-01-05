@@ -69,3 +69,53 @@ let belowFive = myEvery(arr1, function(element) {
     return element < 5
 })
 console.log(belowFive)
+
+function reduce(arr, callback) {
+    if (arr.length < 2) {
+        return;
+    }
+    let answer = callback(arr[0], arr[1]);
+    for (let i = 2; i < arr.length; i++) {
+       answer = callback(answer, arr[i])
+    }
+    return answer;
+}
+
+let reduced = reduce(arr1, function(element, element2) {
+    return element + element2;
+})
+console.log(reduced);
+
+function myIncludes(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function myIndexOf(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return i;
+        }
+    }
+    return -1;
+}
+function myPush(arr, element) {
+    arr[arr.length] = element
+}
+
+function myLastIndex(arr, target) {
+    for (let i = arr.length - 1; i >= 0; i--) {
+        if (arr[i] === target) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+function grabKeys(object) {
+    let arr = []
+}
