@@ -56,3 +56,16 @@ let even = mySome(arr1, function(element) {
     return element % 2 === 0
 })
 console.log(even)
+
+function myEvery(arr, callback) {
+    for (let i = 0; i < arr.length; i++) {
+        if (!callback(arr[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+let belowFive = myEvery(arr1, function(element) {
+    return element < 5
+})
+console.log(belowFive)
