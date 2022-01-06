@@ -159,3 +159,29 @@ function reverse(arr) {
 console.log(arr1)
 arr1.reverse()
 console.log(arr1)
+
+function arrayToList(arr) {
+    if (arr.length === 0) {
+        return;
+    }
+    let list = {
+        value: arr[0],
+        rest: arrayToList(arr.slice(1))
+    }
+    return list;
+} 
+function listToArray(list) {
+    let arr = []
+    if (!list.value) {
+        return arr;
+    }
+    while (list.rest) {
+        arr.push(list.value)
+        list = list.rest
+    }
+    arr.push(list.value)
+    return arr;
+}
+arr1.reverse();
+console.log(arrayToList(arr1))
+console.log(listToArray(arrayToList(arr1)))
