@@ -132,10 +132,30 @@ console.log(grabKeys(obj1));
 
 function grabValues(object) {
     let arr = []
-    for (var value in object) {
-        arr.push(value)
+    for (var key in object) {
+        arr.push(object[key])
     }
     return arr
 }
 
 console.log(grabValues(obj1))
+
+function sumOfRange(arr, start, end) {
+    let sum = 0;
+    for (let i = start; i < end; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+function reverse(arr) {
+    let reversed = []
+    for (let i = arr.length - 1; i >= 0; i++) {
+        reversed.push(arr[i])
+    }
+    arr = reversed;
+}
+
+console.log(arr1)
+arr1.reverse()
+console.log(arr1)
