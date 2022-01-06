@@ -172,7 +172,7 @@ function arrayToList(arr) {
 } 
 function listToArray(list) {
     let arr = []
-    if (!list.value) {
+    if (list.value == null) {
         return arr;
     }
     while (list.rest) {
@@ -185,3 +185,43 @@ function listToArray(list) {
 arr1.reverse();
 console.log(arrayToList(arr1))
 console.log(listToArray(arrayToList(arr1)))
+
+function deepEqual(obj1, obj2) {
+    if ((obj1 == null && obj2 != null) || (obj2 == null && obj1 != null)) {
+        return false;
+    }
+    if (typeof obj1 != 'object' || typeof obj2 != 'object') {
+        return obj1 === obj2;
+    }
+    let firstKeys = obj1.Keys()
+    let secondKeys = obj2.Keys()
+    let firstValues = obj1.Values()
+    let secondValues = obj1.Values()
+    if (firstKeys.length != secondKeys.length) {
+        return false;
+    }
+    for (let i = 0; i < firstKeys.length; i++) {
+        if (firstKeys[i] != secondKeys[i] || firstValues[i] != secondValues[i]) {
+            return false;
+        }
+    }
+    return true
+}
+
+function moveZeroes(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 0) {
+            arr.splice(i, 1)
+            i--;
+            count++;
+        }
+    }
+    for (let i = 0; i < count; i++) {
+        arr.push(0)
+    }
+    return arr
+}
+
+let arr4 = [0,1,0,3,12]
+console.log(moveZeroes(arr4))
